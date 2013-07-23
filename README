@@ -1,11 +1,11 @@
-To add plugins from git:
-  git submodule add git://github.com/user/plugin.git bundle/plugin
-  git submodule init && git submodule update
-
-To update plugins from git:
-  git submodule foreach git pull
-
-To remove submodule:
-  remove line from .gitmodules
-  remove section from .git/config
-  git rm --cached path_to_submodule
+                               ___     
+      ___        ___          /__/\    
+     /__/\      /  /\        |  |::\   
+     \  \:\    /  /:/        |  |:|:\  
+      \  \:\  /__/::\      __|__|:|\:\ 
+  ___  \__\:\ \__\/\:\__  /__/::::| \:\
+ /__/\ |  |:|    \  \:\/\ \  \:\~~\__\/
+ \  \:\|  |:|     \__\::/  \  \:\      
+  \  \:\__|:|     /__/:/    \  \:\     
+   \__\::::/      \__\/      \  \:\    
+       ~~~~                   \__\/    
