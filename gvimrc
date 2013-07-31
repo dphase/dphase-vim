@@ -44,7 +44,7 @@ nnoremap <leader>3 :set guifont=lime:h11<CR>
 " local hacks
 hi Comment          guifg=#5c5b59         
 hi LineNr           guifg=#282829           guibg=#6D6F73
-hi CursorLine       gui=NONE                guibg=#2f2f2f           gui=none
+hi CursorLine       guibg=#2a2a2a
 hi CursorLineNr     guifg=#353535           guibg=#929292           gui=none
 hi StatusLine       guifg=#23272d           guibg=#898b8f           gui=none
 hi StatusLineNC     guifg=#383636           guibg=#646669          gui=none
@@ -53,6 +53,9 @@ hi FoldColumn       guifg=#91d6f8           guibg=#363946           gui=none
 hi VertSplit        guifg=#898b8f           guibg=#898b8f           gui=none
 hi SignColumn       guibg=#636363
 "hi NonText          guifg=#268bd2           guibg=#00252E
+hi Normal guibg=#232323
+
+" set transparency=10
 
 " cool guy status bar
 "source ~/.vim/extra/statusline.vim
