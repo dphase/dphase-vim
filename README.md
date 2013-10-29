@@ -1,3 +1,4 @@
+```                               
                                ___     
       ___        ___          /__/\    
      /__/\      /  /\        |  |::\   
@@ -9,3 +10,6 @@
   \  \:\__|:|     /__/:/    \  \:\     
    \__\::::/      \__\/      \  \:\    
        ~~~~                   \__\/    
+```
+
+![screenshot](https://raw.github.com/dphase/dphase-vim/master/dphase-vim.png)
