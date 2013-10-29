@@ -373,10 +373,6 @@ nmap <leader>e <C-Y>,a
 " insert erb tab
 inoremap <c-e> <% %><ESC>2hi
 
-" ruby header comments
-" inoremap <c-i> <ESC>:s/^\s\+/# /<CR>V=<CR><ESC>yyp<CR>
-
-" we don't want no trailing whitespace
-" au FileType ruby hi BogusWhitespace ctermbg=darkgreen guibg=darkgreen
-" au FileType ruby match BogusWhitespace /\(\S\+\)\@<=\s\+$/
-
+" easyalign
+" ------------------------------------------------------------------------ 
+vnoremap <silent> <Enter> :EasyAlign<Enter>
