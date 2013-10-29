@@ -27,22 +27,28 @@ set backspace=2
 set ruler
 set showcmd
 set laststatus=2
-set background=dark
-set nocompatible
 set expandtab
 set vb
 set number
 set cursorline
+set regexpengine=1 " use pre 7.4 regex engine until it parses erb better
+set t_Co=256
+set autoread
+
+if has('gui_running')
+  set background=dark
+  colorscheme base16-dphase
+else
+  set background=dark
+  colorscheme smyck
+endif
 
 " color columns after 78 chars
-""set colorcolumn=78
+set colorcolumn=80
 
 " make code tabbing more sane
 set tabstop=2
 set shiftwidth=2
-
-" custom statusline
-set statusline=[%n]\ %f\ %(\ %M%R%Y%H%)%=%-14.(%l,%c,%V%)\ %P
 
 " persistent undo
 set undodir=~/.vim/undodir
@@ -58,120 +64,55 @@ set ssop-=options
 " hilight search
 set hlsearch
 set incsearch
-set showmatch
+" set showmatch
 set ignorecase
 set smartcase
 nnoremap <leader><space> :nohlsearch<CR>
-"This unsets the "last search pattern" register by hitting return
+" This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
+
+" read .json as js
+" au BufNewFile,BufRead *.json setf javascript
 
 " no format on middle click pasting
 map <MouseMiddle> <Esc>"*p
 
-" Emacs-like beginning and end of line.
-imap <c-e> <c-o>$
-imap <c-a> <c-o>^
-
-" clear out default colors
-highlight Constant    NONE
-highlight Delimiter   NONE
-highlight Directory   NONE
-highlight Error       NONE
-highlight ErrorMsg    NONE
-highlight Identifier  NONE
-highlight LineNr      NONE
-highlight ModeMsg     NONE
-highlight MoreMsg     NONE
-highlight Normal      NONE
-highlight NonText     NONE
-highlight PreProc     NONE
-highlight Question    NONE
-highlight Search      NONE
-highlight Special     NONE
-highlight SpecialKey  NONE
-highlight Statement   NONE
-highlight StatusLine  NONE
-highlight Title       NONE
-highlight Todo        NONE
-highlight Type        NONE
-highlight Visual      NONE
-highlight WarningMsg  NONE
-
-" new colors for non-gui mode
-highlight Comment     ctermfg=6
-highlight Constant    cterm=bold ctermfg=5
-highlight Delimiter   term=bold cterm=bold ctermfg=1
-highlight Directory   term=bold ctermfg=DarkBlue
-highlight Error       term=standout cterm=bold ctermbg=1 ctermfg=1
-highlight ErrorMsg    term=standout cterm=bold ctermfg=1
-highlight Identifier  term=underline ctermfg=3
-highlight LineNr      term=underline cterm=bold ctermfg=3
-highlight ModeMsg     term=bold cterm=bold ctermfg=3 ctermbg=1
-highlight MoreMsg     term=bold cterm=bold ctermfg=2
-highlight NonText     ctermfg=7
-highlight Normal      ctermfg=white
-highlight PreProc     ctermfg=DarkMagenta
-highlight Question    term=standout cterm=bold ctermfg=2
-highlight Search      term=reverse ctermbg=2
-highlight Special     cterm=bold ctermfg=1
-highlight SpecialKey  term=bold ctermfg=DarkBlue
-highlight Statement   cterm=bold ctermfg=3
-highlight StatusLine  ctermfg=0 ctermbg=7
-highlight Title       term=bold cterm=bold ctermfg=4
-highlight Todo        term=bold ctermfg=red ctermbg=yellow
-highlight Type        term=underline cterm=bold ctermfg=2
-highlight Visual      term=reverse cterm=bold ctermfg=6 ctermbg=5
-highlight WarningMsg  term=standout cterm=bold ctermfg=1 ctermbg=4
-
-" colors for non-gui
-set t_Co=256
-"colorscheme peaksea
-"colorscheme tomorrow-night
-colorscheme smyck
-hi ColorColumn ctermbg=236
-
 " pathogen
-"call pathogen#runtime_append_all_bundles()
 execute pathogen#infect()
-"call pathogen#helptags()
+call pathogen#helptags()
 
-" various
-" let g:Powerline_theme="skwp"
-" let g:Powerline_colorscheme="dphase"
-let g:Powerline_symbols = 'fancy'
+" syntastic settings
+let g:syntastic_enable_balloons = 0
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='→'
+let g:syntastic_ignore_files=['\c\.erb$']
 
 " various mappings
 map <F2> :NERDTreeToggle<CR>
 map <F3> :TagbarToggle<CR>
 map <F4> :w<CR>
-map <F5> :SessionSave<CR>
 map <F6> :runtime! syntax/2html.vim<CR>
-map <F7> :call Sethl7()<CR>
-map <F8> :ConqueTermSplit zsh<CR>
 
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
 " always show gutters
 let g:gitgutter_sign_column_always = 1
+let g:gitgutter_eager = 0
+let g:gitgutter_realtime = 0
 
 " my macros
-nnoremap <leader>y "+y
-"nnoremap <leader>p "+gP
-nnoremap <leader>7 :set filetype=hl7<CR>
-nnoremap <leader>m :TMiniBufExplorer<CR>
-nnoremap <leader>b :MiniBufExplorer<CR>
-nnoremap <leader>jd i Josh Deere (josh.deere@hattiesburgclinic.com)
-nnoremap <leader>tps :%s/tps-tmplt/tps_
-nnoremap <leader>- 72i-<ESC>
-nnoremap <leader>_ 35i-<ESC>
+nnoremap <leader>jd i Josh Deere (josh@project93.com)
+nnoremap <leader>- A  <ESC>72i-<ESC>
+nnoremap <leader>= A  <ESC>35i-<ESC>
 
 " indent guides
-"let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 
 " startify
 let g:startify_session_dir = '~/.vim/sessions'
+let g:startify_files_number = 15
+let g:startify_bookmarks = [ '~/.vim/vimrc', '~/.vim/gvimrc' ]
 let g:startify_custom_header = [
       \ '                                  ___',
       \ '         ___        ___          /__/\',
@@ -191,22 +132,9 @@ hi StartifyHeader  ctermfg=203 guifg=#c4a3e1
 hi StartifySlash ctermfg=240 guifg=#969696
 hi StartifyPath ctermfg=203 guifg=#757575
 
-" hl7 syntax
-au BufRead,BufNewFile *.hl7 setfiletype hl7
-au BufRead,BufNewFile *.bts setfiletype hl7
-
 " plugin configs
-"let g:SuperTabDefaultCompletionType = "context"
 let g:tagbar_usearrows = 1
-
-" minibuf
-let g:miniBufExplModSelTarget = 1
-"let g:miniBufExplorerMoreThanOne = 0
-"let g:miniBufExplModSelTarget = 0
-let g:miniBufExplUseSingleClick = 1
-"let g:miniBufExplMapWindowNavVim = 1
-"let g:miniBufExplVSplit = 25
-"let g:miniBufExplSplitBelow=1
+let g:tagbar_autofocus = 1
 
 "tagma buf
 let g:TagmaBufMgrLocation = 'R'
@@ -217,6 +145,7 @@ let g:ctrlp_dont_split = 'nerdtree'
 
 " nerdtree stuff
 let NERDTreeShowBookmarks=1
+let NERDTreeChDirMode=2
 
 " textmate style mappings
 " bind control-l to hashrocket
@@ -231,51 +160,11 @@ nmap <D-[> <<
 vmap <D-[> <<
 imap <D-[> <C-O><<
 
-" easy window switching
-nmap <leader>w <C-w><C-w>
-
 " bind ctrlp to ;
-nmap ; :CtrlP<CR>
+" nmap ; :CtrlP<CR>
+nmap <leader>F :CtrlPClearAllCaches<CR>
 nnoremap <C-]> :CtrlPtjump<cr>
 nmap , :Ag<space>
-
-" hl7 fun
-function! Sethl7()
-  set statusline=%<%f\ (HL7:\ %{HL7SegmentInfo()})\ %h%m%r%=\ %-14.(%l,%c%V%)\ %P
-endfunction
-" This function adds the segment name and field number to the status line.
-function! HL7SegmentInfo()
-  let line=getline(".")
-  let pieces=split(line,"|")
-  let cursorAt = col(".")
-  if len(pieces) == 0
-    return "No Segment"
-  elseif (len(pieces) == 1) || (cursorAt <= strlen(pieces[0]))
-    if strlen(pieces[0]) > 3
-      return "Invalid segment?"
-    else
-      return pieces[0]
-    endif
-  endif
-  let seg=pieces[0] . "-"
-  let position=strlen(pieces[0])
-  let segNum=0
-  for index in range(1, len(pieces) - 1)
-    let segNum += 1
-    let position += 1
-    let piece = pieces[index]
-    if cursorAt <= (position + strlen(piece))
-      return seg . segNum
-    endif
-    let position += strlen(piece)
-  endfor
-  " If the last piece was the separator (|) then VIM doesn't treat that
-  " as a separate piece so we have to account for this special case.
-  if strpart(line, strlen(line)-1, 1) == "|"
-    let segNum += 1
-  endif
-  return seg . segNum
-endfunction
 
 " make Esc happen without waiting for timeoutlen
 " " fixes Powerline delay
@@ -285,105 +174,117 @@ augroup FastEscape
   au InsertLeave * set timeoutlen=1000
 augroup END
 
+" speedy terminal
+" ----------------------------------- 
+set ttyfast
+set notimeout
+set ttimeout
+set ttimeoutlen=100
+syntax sync minlines=256
+set synmaxcol=256
+
 " make orgmode kinda work
 " source ~/.vim/orgmode.vimrc
-hi LineNr ctermfg=16 ctermbg=248
-hi CursorLine ctermbg=233 cterm=none
-source ~/.vim/extra/xterm_status.vim
+" hi LineNr ctermfg=16 ctermbg=248
+" hi CursorLine ctermbg=233 cterm=none
 filetype plugin indent on
 
 " for my custom ruby debug indicators
-hi Error guifg=#ffffff guibg=#e45050 ctermbg=248 ctermfg=16
+" hi Error guifg=#ffffff guibg=#e45050 ctermbg=248 ctermfg=16
 
-" neotools
+" NeoTools
+" ----------------------------------- 
+" Neo-Complete
+"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
+let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-" Enable heavy features.
-" Use camel case completion.
-"let g:neocomplcache_enable_camel_case_completion = 1
-" Use underbar completion.
-"let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
+let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'default' : '',
     \ 'vimshell' : $HOME.'/.vimshell_hist',
     \ 'scheme' : $HOME.'/.gosh_completions'
         \ }
 
 " Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
 endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 " Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  " return neocomplcache#smart_close_popup() . "\<CR>"
+  " return neocomplete#smart_close_popup() . "\<CR>"
   " For no inserting <CR> key.
-  return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+  return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+
+" jd -- cleaner neocomplete cancel on escape
+function! NeoEscape()
+  return pumvisible() ? '' : "\<ESC>" 
+endfunction
+inoremap <ESC> <C-R>=NeoEscape()<CR>
+
 " Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
+inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 
 " For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
+"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
+"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
+"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
+"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
 " Or set this.
-"let g:neocomplcache_enable_cursor_hold_i = 1
+"let g:neocomplete#enable_cursor_hold_i = 1
 " Or set this.
-"let g:neocomplcache_enable_insert_char_pre = 1
+"let g:neocomplete#enable_insert_char_pre = 1
 
 " AutoComplPop like behavior.
-"let g:neocomplcache_enable_auto_select = 1
+"let g:neocomplete#enable_auto_select = 1
 
 " Shell like behavior(not recommended).
 "set completeopt+=longest
-"let g:neocomplcache_enable_auto_select = 1
-"let g:neocomplcache_disable_auto_complete = 1
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
 "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType eruby,html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
 endif
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
-let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " ---------------------------
 " NeoSnippets
@@ -404,4 +305,78 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
+
+" Make ruby lambdas look cool
+syntax keyword Statement lambda conceal cchar=λ
+hi! link Conceal Statement
+set conceallevel=2
+
+" gmail for vim
+source ~/.vimgmail
+
+" vimshell configs
+nmap <leader>S :VimShell<CR>
+nmap <leader>cS :VimShellCreate<CR>
+let g:vimshell_prompt_expr = 'fnamemodify(getcwd(), ":~")." ❯❯ "'
+let g:vimshell_prompt_pattern = '^\f\+ ❯❯ '
+autocmd FileType vimshell setlocal wrap
+autocmd FileType int-bundle setlocal wrap
+
+" fugitive
+nmap <leader>G :Gcommit -a<CR>
+
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '-'
+let g:gitgutter_sign_modified_removed = '--'
+let g:gitgutter_sign_removed = '_ '
+
+" lightline
+source ~/.vim/dphase_lightline.vim
+
+" Unite
+" ------------------------------------------------------------------------ 
+" Settings
+" ----------------------------------- 
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+      \ 'ignore_pattern', join([
+      \ '\.git/',
+      \ 'git5/.*/review/',
+      \ 'google/obj/',
+      \ 'tmp/',
+      \ '.sass-cache',
+      \ ], '\|'))
+let g:unite_source_history_yank_enable = 1
+
+" Mappings
+" ----------------------------------- 
+function! s:unite_settings()
+  nmap <buffer> <ESC> <plug>(unite_exit)
+  imap <buffer> <ESC> <plug>(unite_exit)
+  nmap <buffer> <C-r> <Plug>(unite_redraw)
+  imap <buffer> <C-r> <Plug>(unite_redraw)
+endfunction
+autocmd FileType unite call s:unite_settings()
+" let g:unite_split_rule = 'bottomleft'
+
+nmap <leader>bl :<C-u>Unite -no-split -start-insert -buffer-name=buffer buffer<CR>
+nmap <leader>y :<C-u>Unite -direction=below -buffer-name=yank history/yank<CR>
+nmap <leader>h :Unite -start-insert -buffer-name=help help<CR>
+nmap <leader>o :Unite -direction=above outline<CR>
+nmap ; :<C-u>Unite -direction=below -start-insert -buffer-name=files file_rec/async<CR>
+" ------------------------------------------------------------------------ 
+
+" vim-emmet
+nmap <leader>e <C-Y>,a
+
+" insert erb tab
+inoremap <c-e> <% %><ESC>2hi
+
+" ruby header comments
+" inoremap <c-i> <ESC>:s/^\s\+/# /<CR>V=<CR><ESC>yyp<CR>
+
+" we don't want no trailing whitespace
+" au FileType ruby hi BogusWhitespace ctermbg=darkgreen guibg=darkgreen
+" au FileType ruby match BogusWhitespace /\(\S\+\)\@<=\s\+$/
 

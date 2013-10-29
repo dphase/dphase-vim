@@ -3,59 +3,41 @@
 " (C) 2004 Joshua Deere - joshua.deere@gmail.com
 " -----------------------------------------------
 
-"colorscheme peaksea
-"colorscheme dphase_obsidian
+" Better window switching
+nmap <silent> <D-Left>  :wincmd h<CR>
+nmap <silent> <D-Down>  :wincmd j<CR>
+nmap <silent> <D-Up>    :wincmd k<CR>
+nmap <silent> <D-Right> <esc>:wincmd l<CR>
+imap <silent> <D-Left>  <esc>:wincmd h<CR>
+imap <silent> <D-Down>  <esc>:wincmd j<CR>
+imap <silent> <D-Up>    <esc>:wincmd k<CR>
+imap <silent> <D-Right> <esc>:wincmd l<CR>
 
-" lets get solarized
-"let g:solarized_bold=0
-"let g:solarized_underline=0
-"let g:solarized_italic=0
+" Fonts
+" set guifont=M+\ 1m\ light\ for\ Powerline:h16
+set guifont=Envy\ Code\ R\ for\ Powerline:h13
+" set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+" set guifont=Eco\ Coding:h13
+set linespace=2
+" set noantialias
 
-"""colorscheme solarized
-"colorscheme tomorrow-night 
-
-" gvim win stuff
-"set guifont=Bitstream\ Vera\ Sans\ Mono\ 6.5
-""set guifont=ProFontWindows\ 9
-"set guifont=Monaco:h9
-""set guifont=Andale\ Mono:h12
-"set guifont=Ubuntu\ Mono:h14
-"set guifont=Wunexus:h10
-set guifont=Envy\ Code\ R:h13
 set guioptions-=T
 set guioptions-=r
 set guioptions-=m
 set guioptions-=l
 set guioptions+=LlRrb
 set guioptions-=LlRrb
-"set noantialias
-"colorscheme dphasecolor
- set lines=50 columns=90
- " turn on line numbers
+set lines=50 columns=130
+set ambiwidth=single
 set number
 set cursorline
-"highlight LineNr guibg=#22242E guifg=#48494A
-"hi NonText guifg=#48494a
 
-nnoremap <leader>1 :set guifont=Envy\ Code\ R:h13<CR>
+nnoremap <leader>1 :set guifont=Source\ Code\ Pro\ for\ Powerline:h13<CR>
 nnoremap <leader>2 :set guifont=Wunexus:h10<CR>
 nnoremap <leader>3 :set guifont=lime:h11<CR>
+nnoremap <leader>4 :set guifont=Sheldon\ Narrow:h12<CR>
+nnoremap <leader>5 :set guifont=Terminus:h12<CR>
+nnoremap <leader>6 :set guifont=Envy\ Code\ R:h13<CR>
 
-" local hacks
-hi Comment          guifg=#5c5b59         
-hi LineNr           guifg=#282829           guibg=#6D6F73
-hi CursorLine       guibg=#2a2a2a
-hi CursorLineNr     guifg=#353535           guibg=#929292           gui=none
-hi StatusLine       guifg=#23272d           guibg=#898b8f           gui=none
-hi StatusLineNC     guifg=#383636           guibg=#646669          gui=none
-hi Folded           guifg=#91d6f8           guibg=#363946           gui=none
-hi FoldColumn       guifg=#91d6f8           guibg=#363946           gui=none
-hi VertSplit        guifg=#898b8f           guibg=#898b8f           gui=none
-hi SignColumn       guibg=#636363
-"hi NonText          guifg=#268bd2           guibg=#00252E
-hi Normal guibg=#232323
-
-" set transparency=10
-
-" cool guy status bar
-"source ~/.vim/extra/statusline.vim
+" local color hacks
+hi NonText guifg=#268bd2 gui=NONE cterm=NONE term=NONE
