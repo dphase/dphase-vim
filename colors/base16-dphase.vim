@@ -2,7 +2,7 @@
 " Scheme: Chris Kempson (http://chriskempson.com)
 
 " GUI color definitions
-let s:gui00 = "2d2d2d"
+let s:gui00 = "272727"
 let s:gui01 = "393939"
 let s:gui02 = "515151"
 let s:gui03 = "747369"
@@ -22,9 +22,11 @@ let s:gui0F = "d27b53"
 " a few editions
 let s:guiER = "e45050"
 let s:guiSC = "393939"
-" let s:guiSC = "313131"
 let s:guiSL = "a24545"
 let s:guiPM = "616161"
+let s:guiCY = "63cbf5"
+let s:guiWT = "ffffff"
+let s:guiGR = "8fb000"
 
 " Terminal color definitions
 let s:cterm00 = "00"
@@ -188,13 +190,13 @@ call <sid>hi("Conditional",  s:gui0E, "", s:cterm0E, "", "")
 call <sid>hi("Constant",     s:gui09, "", s:cterm09, "", "")
 call <sid>hi("Define",       s:gui0E, "", s:cterm0E, "", "none")
 call <sid>hi("Delimiter",    s:gui0F, "", s:cterm0F, "", "")
-call <sid>hi("Float",        s:gui09, "", s:cterm09, "", "")
+call <sid>hi("Float",        s:guiCY, "", s:cterm09, "", "")
 call <sid>hi("Function",     s:gui0D, "", s:cterm0D, "", "")
 call <sid>hi("Identifier",   s:gui08, "", s:cterm08, "", "none")
 call <sid>hi("Include",      s:gui0D, "", s:cterm0D, "", "")
 call <sid>hi("Keyword",      s:gui0E, "", s:cterm0E, "", "")
 call <sid>hi("Label",        s:gui0A, "", s:cterm0A, "", "")
-call <sid>hi("Number",       s:gui09, "", s:cterm09, "", "")
+call <sid>hi("Number",       s:guiCY, "", s:cterm09, "", "")
 call <sid>hi("Operator",     s:gui05, "", s:cterm05, "", "none")
 call <sid>hi("PreProc",      s:gui0A, "", s:cterm0A, "", "")
 call <sid>hi("Repeat",       s:gui0A, "", s:cterm0A, "", "")
@@ -205,7 +207,7 @@ call <sid>hi("StorageClass", s:gui0A, "", s:cterm0A, "", "")
 call <sid>hi("String",       s:gui0B, "", s:cterm0B, "", "")
 call <sid>hi("Structure",    s:gui0E, "", s:cterm0E, "", "")
 call <sid>hi("Tag",          s:gui0A, "", s:cterm0A, "", "")
-call <sid>hi("Todo",         s:gui00, s:gui0A, s:cterm0A, s:cterm01, "")
+call <sid>hi("Todo",         s:guiWT, s:guiGR, s:cterm0A, s:cterm01, "")
 call <sid>hi("Type",         s:gui09, "", s:cterm09, "", "none")
 call <sid>hi("Typedef",      s:gui0A, "", s:cterm0A, "", "")
 
@@ -235,6 +237,7 @@ call <sid>hi("rubyInterpolationDelimiter",  s:gui09, "", s:cterm0F, "", "")
 call <sid>hi("rubyRegexp",                  s:gui0C, "", s:cterm0C, "", "")
 call <sid>hi("rubySymbol",                  s:gui0C, "", s:cterm0C, "", "")
 call <sid>hi("rubyStringDelimiter",         s:gui0B, "", s:cterm0B, "", "")
+call <sid>hi("rubyPseudoVariable",          s:guiCY, "", s:cterm0B, "", "")
 
 " PHP highlighting
 call <sid>hi("phpMemberSelector",  s:gui05, "", s:cterm05, "", "")

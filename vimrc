@@ -88,7 +88,8 @@ let g:syntastic_warning_symbol='→'
 let g:syntastic_ignore_files=['\c\.erb$']
 
 " various mappings
-map <F2> :NERDTreeToggle<CR>
+noremap <leader>d :NERDTreeToggle<CR>
+
 map <F3> :TagbarToggle<CR>
 map <F4> :w<CR>
 map <F6> :runtime! syntax/2html.vim<CR>
@@ -112,7 +113,7 @@ let g:indent_guides_guide_size = 1
 " startify
 let g:startify_session_dir = '~/.vim/sessions'
 let g:startify_files_number = 15
-let g:startify_bookmarks = [ '~/.vim/vimrc', '~/.vim/gvimrc' ]
+let g:startify_bookmarks = [ '~/.vim/vimrc', '~/.vim/gvimrc', '~/.vim/colors/base16-dphase.vim', '~/.vim/after/syntax/ruby.vim' ]
 let g:startify_custom_header = [
       \ '                                  ___',
       \ '         ___        ___          /__/\',
@@ -181,7 +182,11 @@ set notimeout
 set ttimeout
 set ttimeoutlen=100
 syntax sync minlines=256
-set synmaxcol=256
+set synmaxcol=500
+
+" javascript hax
+" ------------------------------------------------------------------------ 
+let g:javascript_conceal = 0
 
 " make orgmode kinda work
 " source ~/.vim/orgmode.vimrc
