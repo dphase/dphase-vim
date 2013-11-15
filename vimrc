@@ -113,7 +113,7 @@ let g:indent_guides_guide_size = 1
 " startify
 let g:startify_session_dir = '~/.vim/sessions'
 let g:startify_files_number = 15
-let g:startify_bookmarks = [ '~/.vim/vimrc', '~/.vim/gvimrc', '~/.vim/colors/base16-dphase.vim', '~/.vim/after/syntax/ruby.vim' ]
+let g:startify_bookmarks = [ '~/TODO', '~/.vim/vimrc', '~/.vim/gvimrc', '~/.vim/colors/base16-dphase.vim', '~/.vim/after/syntax/ruby.vim' ]
 let g:startify_custom_header = [
       \ '                                  ___',
       \ '         ___        ___          /__/\',

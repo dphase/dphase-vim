@@ -10,7 +10,7 @@ let s:gui04 = "a09f93"
 let s:gui05 = "d3d0c8"
 let s:gui06 = "e8e6df"
 let s:gui07 = "f2f0ec"
-let s:gui08 = "f2777a"
+let s:gui08 = 'f2777a'
 let s:gui09 = "f99157"
 let s:gui0A = "ffcc66"
 let s:gui0B = "99cc99"
@@ -27,6 +27,7 @@ let s:guiPM = "616161"
 let s:guiCY = "63cbf5"
 let s:guiWT = "ffffff"
 let s:guiGR = "8fb000"
+let s:guiCV = "f5b0c4"
 
 " Terminal color definitions
 let s:cterm00 = "00"
@@ -238,6 +239,7 @@ call <sid>hi("rubyRegexp",                  s:gui0C, "", s:cterm0C, "", "")
 call <sid>hi("rubySymbol",                  s:gui0C, "", s:cterm0C, "", "")
 call <sid>hi("rubyStringDelimiter",         s:gui0B, "", s:cterm0B, "", "")
 call <sid>hi("rubyPseudoVariable",          s:guiCY, "", s:cterm0B, "", "")
+call <sid>hi("rubyClassVariable",           s:guiCV, "", s:cterm0B, "", "")
 
 " PHP highlighting
 call <sid>hi("phpMemberSelector",  s:gui05, "", s:cterm05, "", "")
