@@ -10,8 +10,8 @@ let s:gui04 = "a09f93"
 let s:gui05 = "d3d0c8"
 let s:gui06 = "e8e6df"
 let s:gui07 = "f2f0ec"
-let s:gui08 = 'f2777a'
-let s:gui09 = "f99157"
+let s:gui08 = 'ff8d8d'
+let s:gui09 = "ffa56f"
 let s:gui0A = "ffcc66"
 let s:gui0B = "99cc99"
 let s:gui0C = "66cccc"
@@ -22,6 +22,7 @@ let s:gui0F = "d27b53"
 " a few editions
 let s:guiER = "e45050"
 let s:guiSC = "393939"
+let s:guiFC = "292929"
 let s:guiSL = "a24545"
 let s:guiPM = "616161"
 let s:guiCY = "63cbf5"
@@ -145,7 +146,7 @@ call <sid>hi("Directory",     s:gui0D, "", s:cterm0D, "", "")
 call <sid>hi("Error",         s:gui07, s:guiER, s:cterm08, s:cterm00, "")
 call <sid>hi("ErrorMsg",      s:gui08, s:gui00, s:cterm08, s:cterm00, "")
 call <sid>hi("Exception",     s:gui08, "", s:cterm08, "", "")
-call <sid>hi("FoldColumn",    "", s:gui01, "", s:cterm01, "")
+call <sid>hi("FoldColumn",    s:gui0D, s:guiFC, "", s:cterm01, "")
 call <sid>hi("Folded",        s:gui05, s:gui02, s:cterm03, s:cterm01, "")
 call <sid>hi("IncSearch",     s:gui0A, "", s:cterm0A, "", "")
 call <sid>hi("Italic",        "", "", "", "", "none")
@@ -294,6 +295,53 @@ call <sid>hi("NERDTreeBookmarkName",  s:gui0C, "", s:cterm05, "", "")
 call <sid>hi("NERDTreeBookmarksHeader",  s:gui05, "", s:cterm05, "", "")
 call <sid>hi("NERDTreeBookmarksLeader",  s:gui00, "", s:cterm05, "", "")
 call <sid>hi("NERDTreeCWD",  s:gui09, "", s:cterm05, "", "")
+
+" VimOutliner " {{{
+" ------------------------------------------------------------------------ 
+" Headings
+" ----------------------------------- 
+call <sid>hi("OL1", s:gui07, "", "", "", "bold")
+call <sid>hi("OL2", s:gui0A, "", "", "", "")
+call <sid>hi("OL3", s:guiCY, "", "", "", "")
+call <sid>hi("OL4", s:gui0A, "", "", "", "")
+call <sid>hi("OL5", s:gui08, "", "", "", "")
+call <sid>hi("OL6", s:gui0B, "", "", "", "")
+call <sid>hi("OL7", s:gui0A, "", "", "", "")
+call <sid>hi("OL8", s:gui0A, "", "", "", "")
+call <sid>hi("OL9", s:gui0A, "", "", "", "")
+" Body Text
+" ----------------------------------- 
+call <sid>hi("BT1", s:gui05, "", "", "", "")
+call <sid>hi("BT2", s:gui05, "", "", "", "")
+call <sid>hi("BT3", s:gui05, "", "", "", "")
+call <sid>hi("BT4", s:gui05, "", "", "", "")
+call <sid>hi("BT5", s:gui05, "", "", "", "")
+call <sid>hi("BT6", s:gui05, "", "", "", "")
+call <sid>hi("BT7", s:gui05, "", "", "", "")
+call <sid>hi("BT8", s:gui05, "", "", "", "")
+call <sid>hi("BT9", s:gui05, "", "", "", "")
+" User Text (Wrapping)
+" ----------------------------------- 
+call <sid>hi("UT1", s:gui0E, "", "", "", "")
+call <sid>hi("UT2", s:gui0E, "", "", "", "")
+call <sid>hi("UT3", s:gui0E, "", "", "", "")
+call <sid>hi("UT4", s:gui0E, "", "", "", "")
+call <sid>hi("UT5", s:gui0E, "", "", "", "")
+call <sid>hi("UT6", s:gui0E, "", "", "", "")
+call <sid>hi("UT7", s:gui0E, "", "", "", "")
+call <sid>hi("UT8", s:gui0E, "", "", "", "")
+call <sid>hi("UT9", s:gui0E, "", "", "", "")
+" CheckBoxes
+" ----------------------------------- 
+call <sid>hi("OLPending", s:gui02, "", "", "", "")
+" Tags
+" ----------------------------------- 
+call <sid>hi("outlTags", s:gui0E, "", "", "", "")
+" URLs
+" ----------------------------------- 
+" call <sid>hi("OLURL", s:gui0E, "", "", "", "underline")
+hi OLURL guifg=#cfa2d6 gui=undercurl guisp=#524254
+" }}}
 
 " Syntastic
 call <sid>hi("SyntasticErrorSign", s:gui07, s:guiER, s:cterm0B, s:cterm01, "")
