@@ -29,6 +29,7 @@ let s:guiCY = "63cbf5"
 let s:guiWT = "ffffff"
 let s:guiGR = "8fb000"
 let s:guiCV = "f5b0c4"
+let s:guiBY = "bbc64d"
 
 " Terminal color definitions
 let s:cterm00 = "00"
@@ -331,6 +332,9 @@ call <sid>hi("UT6", s:gui0E, "", "", "", "")
 call <sid>hi("UT7", s:gui0E, "", "", "", "")
 call <sid>hi("UT8", s:gui0E, "", "", "", "")
 call <sid>hi("UT9", s:gui0E, "", "", "", "")
+" Contact Info
+" ----------------------------------- 
+call <sid>hi("OLContact", s:guiBY, "", "", "", "")
 " CheckBoxes
 " ----------------------------------- 
 call <sid>hi("OLPending", s:gui02, "", "", "", "")

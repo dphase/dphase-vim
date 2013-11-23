@@ -71,6 +71,9 @@ nnoremap <leader><space> :nohlsearch<CR>
 " This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
 
+" open my outliner
+nnoremap <silent><leader>T :e /Users/dphase/Dropbox/TODO.otl<CR>
+
 " read .json as js
 " au BufNewFile,BufRead *.json setf javascript
 
@@ -109,6 +112,10 @@ nnoremap <leader>= A  <ESC>35i-<ESC>
 
 " indent guides
 let g:indent_guides_guide_size = 1
+
+" XML folding
+let g:xml_syntax_folder=1
+au FileType xml setlocal foldmethod=syntax
 
 " startify
 let g:startify_session_dir = '~/.vim/sessions'
@@ -317,7 +324,7 @@ hi! link Conceal Statement
 set conceallevel=2
 
 " gmail for vim
-source ~/.vimgmail
+" source ~/.vimgmail
 
 " vimshell configs
 nmap <leader>S :VimShell<CR>
@@ -377,6 +384,9 @@ nmap <leader>e <C-Y>,a
 
 " insert erb tab
 inoremap <c-e> <% %><ESC>2hi
+
+" URL opener
+nmap <leader>l :Utl<CR>
 
 " easyalign
 " ------------------------------------------------------------------------ 
