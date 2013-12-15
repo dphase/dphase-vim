@@ -34,6 +34,7 @@ set cursorline
 set regexpengine=1 " use pre 7.4 regex engine until it parses erb better
 set t_Co=256
 set autoread
+set clipboard=unnamed
 
 if has('gui_running')
   set background=dark

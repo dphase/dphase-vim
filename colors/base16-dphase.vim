@@ -30,6 +30,7 @@ let s:guiWT = "ffffff"
 let s:guiGR = "8fb000"
 let s:guiCV = "f5b0c4"
 let s:guiBY = "bbc64d"
+let s:guiFL = "475867"
 
 " Terminal color definitions
 let s:cterm00 = "00"
@@ -148,7 +149,7 @@ call <sid>hi("Error",         s:gui07, s:guiER, s:cterm08, s:cterm00, "")
 call <sid>hi("ErrorMsg",      s:gui08, s:gui00, s:cterm08, s:cterm00, "")
 call <sid>hi("Exception",     s:gui08, "", s:cterm08, "", "")
 call <sid>hi("FoldColumn",    s:gui0D, s:guiFC, "", s:cterm01, "")
-call <sid>hi("Folded",        s:gui05, s:gui02, s:cterm03, s:cterm01, "")
+call <sid>hi("Folded",        s:gui05, s:guiFL, s:cterm03, s:cterm01, "")
 call <sid>hi("IncSearch",     s:gui0A, "", s:cterm0A, "", "")
 call <sid>hi("Italic",        "", "", "", "", "none")
 call <sid>hi("Macro",         s:gui08, "", s:cterm08, "", "")
