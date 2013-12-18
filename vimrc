@@ -389,6 +389,22 @@ inoremap <c-e> <% %><ESC>2hi
 " URL opener
 nmap <leader>l :Utl<CR>
 
+" better text folding
+set fillchars=fold:\∙
+function! NeatFoldText()
+  let line = ' ' . substitute(getline(v:foldstart), '(^\s*"\?\s*|^#)\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+  " let foldmarkers = split(&foldmarker, ',')
+  " let line = substitute(getline(v:foldstart), , '\V' . foldmarkers[0] . '\%(\d\+\)\?\s\*', '', '')
+  let lines_count = v:foldend - v:foldstart + 1
+  let lines_count_text = '│ ' . printf("%10s", lines_count . ' lines') . ' │'
+  let foldchar = matchstr(&fillchars, 'fold:\zs.')
+  let foldtextstart = strpart('∙' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+  let foldtextend = lines_count_text . repeat(foldchar, 8)
+  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+endfunction
+set foldtext=NeatFoldText()
+
 " easyalign
 " ------------------------------------------------------------------------ 
 vnoremap <silent> <Enter> :EasyAlign<Enter>
