@@ -3,21 +3,15 @@
 " (C) 2004 Joshua Deere - joshua.deere@gmail.com
 " -----------------------------------------------
 
-" color highlighting for X terms
-if has("terminfo")
- set t_Co=16
- set t_Sf=[3%p1%dm
- set t_vb=
-else
- set t_Co=16
- set t_Sf=[3%dm
- set t_Sb=
- set t_vb=
-endif
+" pathogen
+execute pathogen#infect('bundle/{}')
+execute pathogen#helptags()
 
-" setup the feel of the app
+filetype plugin on
+filetype plugin indent on
 syntax on
 filetype indent on
+
 set foldmethod=marker
 set smartindent
 set smarttab
@@ -31,17 +25,18 @@ set expandtab
 set vb
 set number
 set cursorline
-set regexpengine=1 " use pre 7.4 regex engine until it parses erb better
+" set re=1 " use pre 7.4 regex engine until it parses erb better
 set t_Co=256
 set autoread
 set clipboard=unnamed
+set printfont=Monaco:h13
 
 if has('gui_running')
   set background=dark
   colorscheme base16-dphase
 else
   set background=dark
-  colorscheme smyck
+  colorscheme base16-dphase
 endif
 
 " color columns after 78 chars
@@ -75,15 +70,19 @@ nnoremap <CR> :noh<CR><CR>
 " open my outliner
 nnoremap <silent><leader>T :e /Users/dphase/Dropbox/TODO.otl<CR>
 
+" CSV Viewing/Editing
+" let g:csv_autocmd_arrange = 1
+" 
+aug CSVNoWrap
+  au!
+  au BufRead *.csv :set nowrap
+aug end
+
 " read .json as js
 " au BufNewFile,BufRead *.json setf javascript
 
 " no format on middle click pasting
 map <MouseMiddle> <Esc>"*p
-
-" pathogen
-execute pathogen#infect()
-call pathogen#helptags()
 
 " syntastic settings
 let g:syntastic_enable_balloons = 0
@@ -96,7 +95,6 @@ noremap <leader>d :NERDTreeToggle<CR>
 
 map <F3> :TagbarToggle<CR>
 map <F4> :w<CR>
-map <F6> :runtime! syntax/2html.vim<CR>
 
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
@@ -200,7 +198,6 @@ let g:javascript_conceal = 0
 " source ~/.vim/orgmode.vimrc
 " hi LineNr ctermfg=16 ctermbg=248
 " hi CursorLine ctermbg=233 cterm=none
-filetype plugin indent on
 
 " for my custom ruby debug indicators
 " hi Error guifg=#ffffff guibg=#e45050 ctermbg=248 ctermfg=16
@@ -385,6 +382,11 @@ nmap <leader>e <C-Y>,a
 
 " insert erb tab
 inoremap <c-e> <% %><ESC>2hi
+
+" Fast saving
+nnoremap <leader>w <esc>:w<CR>
+inoremap <c-w> <esc>:w<CR>
+vnoremap <leader>w <esc>:w<CR>
 
 " URL opener
 nmap <leader>l :Utl<CR>
