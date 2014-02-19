@@ -13,7 +13,7 @@ let g:lightline = {
       \ },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste', 'readonly' ], [ 'fugitive'], ['filename' ], [ 'modified', 'ctrlpmark', 'tagbar'] ],
-      \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'filetype' ] ]
+      \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'filetype' ] ]
       \ },
       \ 'inactive': {
       \   'left': [ ['mode'], ['fugitive', 'filename', 'modified'] ],
@@ -35,9 +35,11 @@ let g:lightline = {
       \   'percent': 'MyPercent',
       \   'modified': 'JDModified',
       \   'readonly': 'MyReadonly',
+      \   'syntastic': 'SyntasticStatuslineFlag',
       \   'lineinfo': 'MyLineInfo'
       \ },
       \ 'component_type': {
+      \   'syntastic': 'error',
       \   'readonly': 'readonly',
       \   'modified': 'modified'
       \ },
@@ -46,11 +48,11 @@ let g:lightline = {
       \ }
 
 function! MyModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '✚' : &modifiable ? '' : ''
+  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '■' : &modifiable ? '' : ''
 endfunction
 
 function! JDModified()
-  return '%{&filetype =~ "help\|vimfiler\|gundo\|nerdtree\|ctrlp\|no ft" ? "" : &modified ? "✚" : &modifiable? "" : ""}'
+  return '%{&filetype =~ "help\|vimfiler\|gundo\|nerdtree\|ctrlp\|no ft" ? "" : &modified ? "■" : &modifiable? "" : ""}'
 endfunction
 
 function! MyReadonly()
@@ -153,7 +155,7 @@ endfunction
 
 augroup AutoSyntastic
   autocmd!
-  autocmd BufWritePost *.c,*.cpp call s:syntastic()
+  autocmd BufWritePost *.rb,*.c,*.cpp call s:syntastic()
 augroup END
 function! s:syntastic()
   SyntasticCheck

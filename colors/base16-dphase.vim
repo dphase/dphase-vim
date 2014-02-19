@@ -357,7 +357,7 @@ hi OLURL guifg=#cfa2d6 gui=undercurl guisp=#524254
 
 " Syntastic
 call <sid>hi("SyntasticErrorSign", s:gui07, s:guiER, s:cterm0B, s:cterm01, "")
-call <sid>hi("SyntasticWarningSign", s:gui0A, s:guiSC, s:cterm0A, s:cterm01, "")
+call <sid>hi("SyntasticWarningSign", s:gui08, s:guiSC, s:cterm0A, s:cterm01, "")
 hi SpellBad gui=undercurl guisp=#FF6C60
 hi SpellCap gui=undercurl guisp=#FF6C60
 hi SpellRare gui=undercurl guisp=#FF6C60
