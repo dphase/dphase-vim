@@ -89,7 +89,7 @@ let g:syntastic_enable_balloons = 0
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='→'
 let g:syntastic_ignore_files=['\c\.erb$']
-let g:syntastic_stl_format='%E{✗ %fe (%e) ⮃}%W{ → %fw (%w) }'
+let g:syntastic_stl_format='%E{💣 %fe (%e) ⮃}%W{ 💡 %fw (%w) }'
 
 " various mappings
 noremap <leader>d :NERDTreeToggle<CR>
@@ -310,3 +310,11 @@ au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:U
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
+
+" Github Issues Access Token
+" ------------------------------------------------------------------------ 
+let g:github_access_token = "ca9ce554a4d2bcc4c198b615eb59fdc7497e2f54"
+
+" Vim SLIME
+" ------------------------------------------------------------------------ 
+let g:slime_target = "tmux"

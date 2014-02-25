@@ -245,12 +245,6 @@ call <sid>hi("slimIdChar", s:guiCY2, "", s:cterm0D, "", "")
 call <sid>hi("slimId", s:guiCY2, "", s:cterm0D, "", "")
 call <sid>hi("htmlTagName", s:guiCV, "", s:cterm0D, "", "")
 
-" JavaScript
-call <sid>hi("jsFunction", s:gui0E, "", s:cterm0D, "", "")
-call <sid>hi("jsFuncName", s:guiCY, "", s:cterm0D, "", "")
-call <sid>hi("jsGlobal", s:gui01, "", s:cterm0D, "", "")
-call <sid>hi("javascriptAServices", s:guiCY, "", s:cterm0D, "", "")
-
 " PHP highlighting
 call <sid>hi("phpMemberSelector",  s:gui05, "", s:cterm05, "", "")
 call <sid>hi("phpComparison",      s:gui05, "", s:cterm05, "", "")
@@ -275,9 +269,13 @@ call <sid>hi("sassMixing",     s:gui0E, "", s:cterm0E, "", "")
 call <sid>hi("sassMixinName",  s:gui0D, "", s:cterm0D, "", "")
 
 " JavaScript highlighting
-call <sid>hi("javaScript",        s:gui05, "", s:cterm05, "", "")
-call <sid>hi("javaScriptBraces",  s:gui05, "", s:cterm05, "", "")
-call <sid>hi("javaScriptNumber",  s:gui09, "", s:cterm09, "", "")
+call <sid>hi("javaScript",          s:gui05,  "", s:cterm05, "", "")
+call <sid>hi("javaScriptBraces",    s:gui05,  "", s:cterm05, "", "")
+call <sid>hi("javaScriptNumber",    s:gui09,  "", s:cterm09, "", "")
+call <sid>hi("jsFunction",          s:gui0E,  "", s:cterm0D, "", "")
+call <sid>hi("jsFuncName",          s:guiCY,  "", s:cterm0D, "", "")
+call <sid>hi("jsGlobal",            s:guiCY2, "", s:cterm0D, "", "")
+call <sid>hi("javascriptAServices", s:guiCY,  "", s:cterm0D, "", "")
 
 " Markdown highlighting
 call <sid>hi("markdownCode",              s:gui0B, "", s:cterm0B, "", "")
