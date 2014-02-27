@@ -12,7 +12,7 @@ let g:lightline = {
       \   'R': '✗'
       \ },
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste', 'readonly' ], [ 'fugitive'], ['filename' ], [ 'modified', 'ctrlpmark', 'tagbar'] ],
+      \   'left': [ [ 'mode', 'paste', 'readonly' ], [ 'fugitive'], ['filename' ], [ 'modified'] ],
       \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'filetype' ] ]
       \ },
       \ 'inactive': {
@@ -20,7 +20,7 @@ let g:lightline = {
       \   'right': [ ],
       \ },
       \ 'component': {
-      \   'tagbar': '%{tagbar#currenttag("%s", "")}',
+      \   'tagbar': '- %{tagbar#currenttag("%s", "")} -',
       \ },
       \ 'component_function': {
       \   'fugitive': 'MyFugitive',
@@ -47,16 +47,12 @@ let g:lightline = {
       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
       \ }
 
-function! MyModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '■' : &modifiable ? '' : ''
-endfunction
-
 function! JDModified()
-  return '%{&filetype =~ "help\|vimfiler\|gundo\|nerdtree\|ctrlp\|no ft" ? "" : &modified ? "■" : &modifiable? "" : ""}'
+  return '%{&filetype =~ "help\|vimfiler\|gundo\|nerdtree\|ctrlp\|no ft" ? " " : &modified ? "■" : &modifiable? " " : " "}'
 endfunction
 
 function! MyReadonly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
+  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '🔒' : ''
 endfunction
 
 function! MyFilename()
