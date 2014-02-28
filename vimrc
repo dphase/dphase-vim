@@ -154,6 +154,7 @@ let g:ctrlp_dont_split = 'nerdtree'
 " nerdtree stuff
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
+let NERDTreeMinimalUI=1
 
 " textmate style mappings
 " bind control-l to hashrocket
