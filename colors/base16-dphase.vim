@@ -33,7 +33,7 @@ let s:guiCV  = "f5b0c4"
 let s:guiBY  = "bbc64d"
 let s:guiFL  = "475867"
 let s:guiTD  = "db970f"
-let s:guiHL  = "634f00"
+let s:guiHL  = "4d4f5c"
 
 " Terminal color definitions
 let s:cterm00 = "000"
@@ -153,21 +153,20 @@ call <sid>hi("ModeMsg",       s:gui0B, "", s:cterm0B, "", "")
 call <sid>hi("MoreMsg",       s:gui0B, "", s:cterm0B, "", "")
 call <sid>hi("Question",      s:gui0A, "", s:cterm0A, "", "")
 call <sid>hi("Search",        s:gui0A, s:gui01, s:cterm0A, s:cterm01,  "reverse")
-call <sid>hi("SpecialKey",    s:gui03, "", s:cterm03, "", "")
+call <sid>hi("SpecialKey",    s:guiCV, "", s:cterm03, "", "")
 call <sid>hi("TooLong",       s:gui08, "", s:cterm08, "", "")
 call <sid>hi("Underlined",    s:gui08, "", s:cterm08, "", "")
-call <sid>hi("Visual",        "", s:gui02, "", s:cterm02, "")
+call <sid>hi("Visual",        "", s:guiHL, "", s:cterm02, "")
 call <sid>hi("VisualNOS",     s:gui08, "", s:cterm08, "", "")
 call <sid>hi("WarningMsg",    s:gui08, "", s:cterm08, "", "")
 call <sid>hi("WildMenu",      s:gui08, "", s:cterm08, "", "")
 call <sid>hi("Title",         s:gui0D, "", s:cterm0D, "", "none")
-call <sid>hi("Conceal",       s:gui0D, s:gui00, s:cterm0D, s:cterm00, "")
+call <sid>hi("Conceal",       s:guiCY, s:gui00, s:cterm0D, s:cterm00, "bold")
 call <sid>hi("Cursor",        s:gui00, s:gui05, s:cterm00, s:cterm05, "")
 call <sid>hi("NonText",       s:gui03, "", s:cterm03, "", "")
 call <sid>hi("Normal",        s:gui05, s:gui00, s:cterm05, "none", "")
 call <sid>hi("LineNr",        s:gui03, s:gui01, s:cterm04, s:cterm02, "")
 call <sid>hi("SignColumn",    s:gui03, s:guiSC, s:cterm04, s:cterm02, "")
-call <sid>hi("SpecialKey",    s:gui03, "", s:cterm03, "", "")
 call <sid>hi("StatusLine",    s:gui04, s:gui02, s:cterm04, s:cterm02, "bevel")
 call <sid>hi("StatusLineNC",  s:gui03, s:gui01, s:cterm03, s:cterm01, "bevel")
 call <sid>hi("VertSplit",     s:gui03, s:gui03, s:cterm02, s:cterm02, "vbevel")
@@ -294,7 +293,7 @@ call <sid>hi("GitGutterChange",       s:gui0C, s:guiSC, s:cterm0D, s:cterm02, ""
 call <sid>hi("GitGutterDelete",       s:guiER, s:guiSC, s:cterm08, s:cterm02, "")
 call <sid>hi("GitGutterChangeDelete", s:gui0A, s:guiSC, s:cterm08, s:cterm02, "")
 
-" GitGutter highlighting
+" NERDTree highlighting
 call <sid>hi("NERDTreeDir",  s:gui0A, "", s:cterm0D, "", "")
 call <sid>hi("NERDTreeUp",  s:gui07, "", s:cterm0D, "", "")
 call <sid>hi("NERDTreeDirSlash",  s:gui09, "", s:cterm0D, "", "")
@@ -305,6 +304,11 @@ call <sid>hi("NERDTreeBookmarksHeader",  s:gui06, s:gui03, s:cterm05, "", "bevel
 call <sid>hi("NERDTreeBookmarksFooter",  s:gui06, s:gui03, s:cterm05, "", "bevel")
 call <sid>hi("NERDTreeBookmarksLeader",  s:gui00, "", s:cterm05, "", "")
 call <sid>hi("NERDTreeCWD",  s:gui09, "", s:cterm05, "", "")
+
+" Tagbar
+call <sid>hi("TagbarScope",  s:gui0A, "", s:cterm0D, "", "")
+call <sid>hi("TagbarFoldIcon",  s:gui0A, "", s:cterm0D, "", "")
+call <sid>hi("TagbarKind",  s:gui0E, "", s:cterm0D, "", "")
 
 " VimOutliner " {{{
 " ------------------------------------------------------------------------ 

@@ -93,8 +93,8 @@ let g:syntastic_stl_format='%E{💀 %fe (%e) ⮃}%W{ 💡 %fw (%w) }'
 
 " various mappings
 noremap <leader>d :NERDTreeToggle<CR>
+noremap <leader>g :TagbarOpenAutoClose<CR>
 
-map <F3> :TagbarToggle<CR>
 map <F4> :w<CR>
 
 map <S-Insert> <MiddleMouse>
@@ -107,8 +107,8 @@ let g:gitgutter_realtime = 0
 
 " my macros
 nnoremap <leader>jd i Josh Deere (josh@project93.com)
-nnoremap <leader>- A  <ESC>72i-<ESC>
-nnoremap <leader>= A  <ESC>35i-<ESC>
+nnoremap <leader>- A  <ESC>79i-<ESC>
+nnoremap <leader>= A  <ESC>45i-<ESC>
 
 " indent guides
 let g:indent_guides_guide_size = 1
@@ -198,8 +198,8 @@ let g:javascript_conceal = 0
 
 " Make ruby lambdas look cool
 " ------------------------------------------------------------------------ 
-syntax keyword Statement lambda conceal cchar=λ
-hi! link Conceal Statement
+" syntax keyword Statement lambda conceal cchar=λ
+" hi! link Conceal Statement
 set conceallevel=2
 
 " vimshell configs
@@ -292,6 +292,9 @@ vnoremap <silent> <Enter> :EasyAlign<Enter>
 
 " YouCompleteMe + UltiSnips
 " ------------------------------------------------------------------------ 
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_enable_diagnostic_signs = 0
+
 function! g:UltiSnips_Complete()
   call UltiSnips_ExpandSnippet()
   if g:ulti_expand_res == 0
@@ -311,6 +314,24 @@ au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:U
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
+
+" TagBar
+" ------------------------------------------------------------------------ 
+let g:tagbar_compact = 1
+let g:tagbar_indent = 2
+let g:tagbar_iconchars = ['▸', '▾']
+let g:tagbar_type_ruby = {
+  \ 'kinds' : [
+    \ 'm:modules',
+    \ 'c:classes',
+    \ 'd:describes',
+    \ 'C:contexts',
+    \ 'f:methods',
+    \ 'b:filters',
+    \ 'p:routes',
+    \ 'F:singleton methods'
+  \ ]
+\ }
 
 " Vim SLIME
 " ------------------------------------------------------------------------ 
