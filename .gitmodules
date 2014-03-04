@@ -1,0 +1,3 @@
+[submodule "bundle/GoldenView.Vim"]
+	path = bundle/GoldenView.Vim
+	url = git@github.com:zhaocai/GoldenView.Vim.git
