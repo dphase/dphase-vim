@@ -36,10 +36,21 @@ let s:guiTD  = "db970f"
 let s:guiHL  = "4d4f5c"
 
 " CDE-ish Colors
-let s:cdeBackground = '272930'
-let s:cdeCursorline = '212329'
-let s:cdeRed        = 'e87d91'
-let s:cdeGreen      = 'a2c781'
+" ------------------------------------------------------------------------------- 
+let s:cdeBackground   = '2c2e36'
+let s:cdeCursorline   = '24252b'
+let s:cdeGutter       = '3f414d'
+let s:cdeGutterHi     = '535663'
+let s:cdeGutterText   = '818594'
+let s:cdeGutterTextHi = '9094a3'
+let s:cdeEOL          = '32343d'
+let s:cdeProjects     = '1f2126'
+
+let s:cdeGitAdd = '839e64'
+
+let s:cdeRed          = 'e87d91'
+let s:cdeGreen        = 'a2c781'
+" ------------------------------------------------------------------------------- 
 
 " Terminal color definitions
 let s:cterm00 = "000"
@@ -172,15 +183,15 @@ call <sid>hi("Conceal",       s:guiCY, s:cdeBackground, s:cterm0D, s:cterm00, "b
 call <sid>hi("Cursor",        s:cdeBackground, s:gui05, s:cterm00, s:cterm05, "")
 call <sid>hi("NonText",       s:gui03, "", s:cterm03, "", "")
 call <sid>hi("Normal",        s:gui05, s:cdeBackground, s:cterm05, "none", "")
-call <sid>hi("LineNr",        s:gui03, s:gui01, s:cterm04, s:cterm02, "")
-call <sid>hi("SignColumn",    s:gui03, s:guiSC, s:cterm04, s:cterm02, "")
+call <sid>hi("LineNr",        s:cdeGutterText, s:cdeGutter, s:cterm04, s:cterm02, "")
+call <sid>hi("SignColumn",    s:gui03, s:cdeGutter, s:cterm04, s:cterm02, "")
 call <sid>hi("StatusLine",    s:gui04, s:gui02, s:cterm04, s:cterm02, "bevel")
 call <sid>hi("StatusLineNC",  s:gui03, s:gui01, s:cterm03, s:cterm01, "bevel")
 call <sid>hi("VertSplit",     s:gui03, s:gui03, s:cterm02, s:cterm02, "vbevel")
-call <sid>hi("ColorColumn",   "", s:gui01, "", s:cterm01, "none")
+call <sid>hi("ColorColumn",   "", s:cdeEOL, "", s:cterm01, "none")
 call <sid>hi("CursorColumn",  "", s:gui01, "", s:cterm05, "none")
 call <sid>hi("CursorLine",    "", s:cdeCursorline, "", s:cterm01, "none")
-call <sid>hi("CursorLineNr",  s:gui04, s:gui02, s:cterm05, s:cterm03, "")
+call <sid>hi("CursorLineNr",  s:cdeGutterTextHi, s:cdeGutterHi, s:cterm05, s:cterm03, "")
 call <sid>hi("PMenu",         s:gui06, s:guiPM, s:cterm04, s:cterm01, "none")
 call <sid>hi("PMenuSel",      s:guiWT, s:guiTD, s:cterm04, s:cterm01, "bold,bevel")
 call <sid>hi("TabLine",       s:gui03, s:gui01, s:cterm03, s:cterm01, "none")
@@ -295,21 +306,21 @@ call <sid>hi("gitCommitOverflow",  s:cdeRed, "", s:cterm08, "", "")
 call <sid>hi("gitCommitSummary",   s:cdeGreen, "", s:cterm0B, "", "")
   
 " GitGutter highlighting
-call <sid>hi("GitGutterAdd",          s:cdeGreen, s:guiSC, s:cterm0B, s:cterm02, "")
-call <sid>hi("GitGutterChange",       s:gui0C, s:guiSC, s:cterm0D, s:cterm02, "")
-call <sid>hi("GitGutterDelete",       s:guiER, s:guiSC, s:cterm08, s:cterm02, "")
-call <sid>hi("GitGutterChangeDelete", s:gui0A, s:guiSC, s:cterm08, s:cterm02, "")
+call <sid>hi("GitGutterAdd",          s:cdeGreen, s:cdeGutter, s:cterm0B, s:cterm02, "")
+call <sid>hi("GitGutterChange",       s:gui0C, s:cdeGutter, s:cterm0D, s:cterm02, "")
+call <sid>hi("GitGutterDelete",       s:guiER, s:cdeGutter, s:cterm08, s:cterm02, "")
+call <sid>hi("GitGutterChangeDelete", s:gui0A, s:cdeGutter, s:cterm08, s:cterm02, "")
 
 " NERDTree highlighting
 call <sid>hi("NERDTreeDir",  s:gui0A, "", s:cterm0D, "", "")
 call <sid>hi("NERDTreeUp",  s:gui07, "", s:cterm0D, "", "")
 call <sid>hi("NERDTreeDirSlash",  s:gui09, "", s:cterm0D, "", "")
 call <sid>hi("NERDTreeExecFile",  s:cdeRed, "", s:cterm05, "", "")
-call <sid>hi("NERDTreeBookmark",  s:gui02, "", s:cterm05, "", "")
-call <sid>hi("NERDTreeBookmarkName",  s:gui0C, "", s:cterm05, "", "")
+call <sid>hi("NERDTreeBookmark",  s:gui02, s:cdeProjects, s:cterm05, "", "")
+call <sid>hi("NERDTreeBookmarkName",  s:gui0C, s:cdeProjects, s:cterm05, "", "")
 call <sid>hi("NERDTreeBookmarksHeader",  s:gui06, s:gui03, s:cterm05, "", "bevel")
 call <sid>hi("NERDTreeBookmarksFooter",  s:gui06, s:gui03, s:cterm05, "", "bevel")
-call <sid>hi("NERDTreeBookmarksLeader",  s:cdeBackground, "", s:cterm05, "", "")
+call <sid>hi("NERDTreeBookmarksLeader",  s:cdeGutterText, s:cdeProjects, s:cterm05, "", "")
 call <sid>hi("NERDTreeCWD",  s:gui09, "", s:cterm05, "", "")
 
 " Tagbar
