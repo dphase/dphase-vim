@@ -1,3 +1,6 @@
 [submodule "bundle/GoldenView.Vim"]
 	path = bundle/GoldenView.Vim
 	url = git@github.com:zhaocai/GoldenView.Vim.git
+[submodule "bundle/brolink.vim"]
+	path = bundle/brolink.vim
+	url = https://github.com/jaxbot/brolink.vim
