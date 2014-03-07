@@ -44,7 +44,8 @@ let s:cdeGutterHi     = '535663'
 let s:cdeGutterText   = '818594'
 let s:cdeGutterTextHi = '9094a3'
 let s:cdeEOL          = '32343d'
-let s:cdeProjects     = '1f2126'
+let s:cdeProjects     = '26272b'
+" let s:cdeProjects     = '1f2126'
 
 let s:cdeGitAdd = '839e64'
 
@@ -380,7 +381,7 @@ hi OLURL guifg=#cfa2d6 gui=undercurl guisp=#524254
 
 " Syntastic
 call <sid>hi("SyntasticErrorSign", s:gui07, s:guiER, s:cterm0B, s:cterm01, "")
-call <sid>hi("SyntasticWarningSign", s:cdeRed, s:guiSC, s:cterm0A, s:cterm01, "")
+call <sid>hi("SyntasticWarningSign", s:cdeRed, s:cdeGutter, s:cterm0A, s:cterm01, "")
 hi SpellBad gui=undercurl guisp=#FF6C60
 hi SpellCap gui=undercurl guisp=#FF6C60
 hi SpellRare gui=undercurl guisp=#FF6C60
