@@ -1,4 +1,5 @@
 .netrwhist
 sessions/*
 undodir/*
-
+gvimrc.local
+vimrc.local

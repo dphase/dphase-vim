@@ -289,13 +289,23 @@ call <sid>hi("sassMixing",     s:gui0E, "", s:cterm0E, "", "")
 call <sid>hi("sassMixinName",  s:gui0D, "", s:cterm0D, "", "")
 
 " JavaScript highlighting
-call <sid>hi("javaScript",          s:gui05,  "", s:cterm05, "", "")
-call <sid>hi("javaScriptBraces",    s:gui05,  "", s:cterm05, "", "")
-call <sid>hi("javaScriptNumber",    s:gui09,  "", s:cterm09, "", "")
-call <sid>hi("jsFunction",          s:gui0E,  "", s:cterm0D, "", "")
-call <sid>hi("jsFuncName",          s:guiCY,  "", s:cterm0D, "", "")
-call <sid>hi("jsGlobal",            s:guiCY2, "", s:cterm0D, "", "")
-call <sid>hi("javascriptAServices", s:guiCY,  "", s:cterm0D, "", "")
+call <sid>hi("javaScript",            s:gui05,  "", s:cterm05, "", "")
+call <sid>hi("javaScriptBraces",      s:gui05,  "", s:cterm05, "", "")
+call <sid>hi("javaScriptNumber",      s:gui09,  "", s:cterm09, "", "")
+call <sid>hi("javaScriptFuncKeyword", s:gui0E,  "", s:cterm0D, "", "")
+call <sid>hi("javaScriptFuncDef",     s:guiCY,  "", s:cterm0D, "", "")
+call <sid>hi("javaScriptFuncExp",     s:guiCY,  "", s:cterm0D, "", "")
+call <sid>hi("javaScriptIdentifier",  s:gui0A,  "", s:cterm0D, "", "")
+call <sid>hi("jsGlobal",              s:guiCY2, "", s:cterm0D, "", "")
+call <sid>hi("javascriptAServices",   s:guiCY,  "", s:cterm0D, "", "")
+
+" CoffeeScript
+" ---------------------------------------------------------------------------------
+call <sid>hi("coffeeBlock", s:gui05, "", s:cterm0D, "", "")
+call <sid>hi("coffeeSpecialOp", s:gui05, "", s:cterm0D, "", "")
+call <sid>hi("coffeeDollar", s:guiCY2, "", s:cterm0D, "", "")
+call <sid>hi("coffeeObjAssign", s:guiCV, "", s:cterm0D, "", "")
+call <sid>hi("coffeeNumber", s:gui0A, "", s:cterm0D, "", "")
 
 " Markdown highlighting
 call <sid>hi("markdownCode",              s:cdeGreen, "", s:cterm0B, "", "")

@@ -105,10 +105,21 @@ let g:gitgutter_sign_column_always = 1
 let g:gitgutter_eager = 0
 let g:gitgutter_realtime = 0
 
+" comment header line
+function! CommentHeader()
+  let times = 82 - col(".")
+  let line  = getline(".")
+  " let space = matchstr(line, "(^#|^\s+#)") == "#" ? " " : ""
+  let space = " "
+  exe ":normal A" . space . repeat("-", times)
+endfunction
+
 " my macros
+" ------------------------------------------------------------------------------- 
 nnoremap <leader>jd i Josh Deere (josh@project93.com)
-nnoremap <leader>- A  <ESC>79i-<ESC>
-nnoremap <leader>= A  <ESC>45i-<ESC>
+nnoremap <leader>- :call CommentHeader()<CR>o
+" nnoremap <leader>- A  <ESC>79i-<ESC>
+" nnoremap <leader>= A  <ESC>45i-<ESC>
 
 " indent guides
 let g:indent_guides_guide_size = 1
@@ -236,6 +247,7 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'git5/.*/review/',
       \ 'google/obj/',
       \ 'tmp/',
+      \ 'assets/components/',
       \ '.sass-cache',
       \ ], '\|'))
 let g:unite_source_history_yank_enable = 1
@@ -265,9 +277,9 @@ nmap <leader>e <C-Y>,a
 inoremap <c-e> <% %><ESC>2hi
 
 " Fast saving
-nnoremap <leader>w <esc>:w<CR>
-inoremap <c-w> <esc>:w<CR>
-vnoremap <leader>w <esc>:w<CR>
+nnoremap <leader>w :w<CR>
+inoremap <c-w> <esc>:w<CR>i
+" vnoremap <leader>w <esc>:w<CR>
 
 " URL opener
 nmap <leader>l :Utl<CR>
@@ -275,7 +287,7 @@ nmap <leader>l :Utl<CR>
 " better text folding
 set fillchars=fold:\∙
 function! NeatFoldText()
-  let line = ' ' . substitute(getline(v:foldstart), '^\s*\("\|#\|//\)\?\s*\|\s*\("\|#\)\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+  let line = ' ' . substitute(getline(v:foldstart), '^\s*\("\|#\|//\|/\)\?\s*\|\s*\("\|#\)\?\s*{{' . '{\d*\s*', '', 'g') . ' '
   let lines_count = v:foldend - v:foldstart + 1
   let lines_count_text = '│ ' . printf("%10s", lines_count . ' lines') . ' │'
   let foldchar = matchstr(&fillchars, 'fold:\zs.')
@@ -336,10 +348,17 @@ let g:tagbar_type_ruby = {
 " BroLink
 " ------------------------------------------------------------------------------- 
 let g:bl_no_mappings = 1
+noremap <leader>bs :BLStart<CR>
+noremap <leader>br :BLReloadPage<CR>
 
 " Origami
 " ------------------------------------------------------------------------------- 
 let g:OrigamiFoldAtCol = 77
+
+" CoffeeScript
+" ---------------------------------------------------------------------------------
+hi link coffeeSpaceError NONE
+hi link coffeeSemicolonError NONE
 
 " Vim SLIME
 " ------------------------------------------------------------------------ 

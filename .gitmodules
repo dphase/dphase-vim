@@ -4,3 +4,6 @@
 [submodule "bundle/vim-origami"]
 	path = bundle/vim-origami
 	url = https://github.com/kshenoy/vim-origami
+[submodule "bundle/vim-coffee-script"]
+	path = bundle/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
