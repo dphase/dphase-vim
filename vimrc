@@ -264,10 +264,9 @@ autocmd FileType unite call s:unite_settings()
 " let g:unite_split_rule = 'bottomleft'
 
 nmap <leader>bl :<C-u>Unite -no-split -start-insert -buffer-name=buffer buffer<CR>
-nmap <leader>y :<C-u>Unite -direction=below -buffer-name=yank history/yank<CR>
-nmap <leader>h :Unite -start-insert -buffer-name=help help<CR>
-nmap <leader>o :Unite -direction=above outline<CR>
-nmap ; :<C-u>Unite -direction=below -start-insert -buffer-name=files file_rec/async<CR>
+nmap <leader>y :<C-u>Unite -direction=botright -winheight=10 -buffer-name=yank history/yank<CR>
+nmap <leader>h :Unite -start-insert -winheight=10 -buffer-name=help help<CR>
+nmap ; :<C-u>Unite -direction=botright -winheight=10 -start-insert -buffer-name=files file_rec/async<CR>
 " ------------------------------------------------------------------------ 
 
 " vim-emmet

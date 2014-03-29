@@ -59,6 +59,7 @@ function! MyFilename()
   let fname = substitute(expand('%'), '.*/\([^/]\+/\)', '\1', '')
   return fname == 'ControlP' ? g:lightline.ctrlp_item :
         \ fname == '__Tagbar__' ? '' :
+        \ fname == 'Spotify' ? g:vim_spotify_current_song :
         \ fname =~ '__Gundo\|NERD_tree' ? '' :
         \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
         \ &ft == 'unite' ? unite#get_status_string() :
@@ -107,6 +108,7 @@ function! MyMode()
   return fname == '__Tagbar__' ? 'Tagbar' :
         \ fname == 'ControlP' ? 'CtrlP' :
         \ fname == '__Gundo__' ? 'Gundo' :
+        \ fname == 'Spotify' ? '♫ Spotify' :
         \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
         \ fname =~ 'NERD_tree' ? 'NERDTree' :
         \ &ft == 'unite' ? 'Unite' :

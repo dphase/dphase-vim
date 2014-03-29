@@ -306,6 +306,11 @@ call <sid>hi("coffeeSpecialOp", s:gui05, "", s:cterm0D, "", "")
 call <sid>hi("coffeeDollar", s:guiCY2, "", s:cterm0D, "", "")
 call <sid>hi("coffeeObjAssign", s:guiCV, "", s:cterm0D, "", "")
 call <sid>hi("coffeeNumber", s:gui0A, "", s:cterm0D, "", "")
+call <sid>hi("coffeeNumber", s:gui0A, "", s:cterm0D, "", "")
+
+" CoffeeScript Angular
+" ---------------------------------------------------------------------------------
+call <sid>hi("coffeeAServices", s:guiCY2, "", s:cterm0D, "", "")
 
 " Markdown highlighting
 call <sid>hi("markdownCode",              s:cdeGreen, "", s:cterm0B, "", "")
@@ -315,6 +320,20 @@ call <sid>hi("markdownHeadingDelimiter",  s:gui0D, "", s:cterm0D, "", "")
 " Git highlighting
 call <sid>hi("gitCommitOverflow",  s:cdeRed, "", s:cterm08, "", "")
 call <sid>hi("gitCommitSummary",   s:cdeGreen, "", s:cterm0B, "", "")
+
+" Vim Spotify
+call <sid>hi("spotifyNote",   s:gui0A,         "", s:cterm0B, "", "")
+call <sid>hi("spotifyDelim",  s:gui02,         "", s:cterm0B, "", "")
+call <sid>hi("spotifyArtist", s:gui04,         "", s:cterm0B, "", "")
+call <sid>hi("spotifySong",   s:gui06,         "", s:cterm0B, "", "")
+call <sid>hi("spotifyAlbum",  s:gui04,         "", s:cterm0B, "", "")
+call <sid>hi("spotifyHref",   s:cdeBackground, "", s:cterm0B, "", "")
+call <sid>hi("spotifyAbout",  s:guiCY,         "", s:cterm0B, "", "")
+call <sid>hi("spotifyLength",  s:guiCY,         "", s:cterm0B, "", "")
+
+" Vim HackerNews
+call <sid>hi("hnLinkInfo", s:gui03, "", s:cterm0B, "", "")
+call <sid>hi("hnHeader", s:gui09, "", s:cterm0B, "", "")
   
 " GitGutter highlighting
 call <sid>hi("GitGutterAdd",          s:cdeGreen, s:cdeGutter, s:cterm0B, s:cterm02, "")
