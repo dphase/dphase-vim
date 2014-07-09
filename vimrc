@@ -30,10 +30,13 @@ set t_Co=256
 set autoread
 set clipboard=unnamed
 set printfont=Monaco:h13
+set tags+=gems.tags
 
 if has('gui_running')
   set background=dark
-  colorscheme base16-dphase
+  " colorscheme base16-dphase
+  let g:seoul256_background = 234
+  colorscheme seoul256
 else
   set background=dark
   colorscheme base16-dphase
@@ -247,6 +250,7 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'git5/.*/review/',
       \ 'google/obj/',
       \ 'tmp/',
+      \ 'nodejs/node_modules/',
       \ 'assets/components/',
       \ '.sass-cache',
       \ ], '\|'))
@@ -305,6 +309,8 @@ vnoremap <silent> <Enter> :EasyAlign<Enter>
 " ------------------------------------------------------------------------ 
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_enable_diagnostic_signs = 0
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_add_preview_to_completeopt = 1
 
 function! g:UltiSnips_Complete()
   call UltiSnips_ExpandSnippet()
@@ -349,6 +355,7 @@ let g:tagbar_type_ruby = {
 let g:bl_no_mappings = 1
 noremap <leader>bs :BLStart<CR>
 noremap <leader>br :BLReloadPage<CR>
+noremap <leader>bc :BLReloadCSS<CR>
 
 " Origami
 " ------------------------------------------------------------------------------- 
@@ -362,3 +369,9 @@ hi link coffeeSemicolonError NONE
 " Vim SLIME
 " ------------------------------------------------------------------------ 
 let g:slime_target = "tmux"
+
+" Eclim
+" ---------------------------------------------------------------------------------
+autocmd FileType java,ruby let g:EclimCompletionMethod = 'omnifunc'
+" autocmd FileType java,ruby,c,cpp
+"   \ if &completefunc != '' | let &omnifunc=&completefunc | endif

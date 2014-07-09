@@ -37,14 +37,16 @@ let s:guiHL  = "4d4f5c"
 
 " CDE-ish Colors
 " ------------------------------------------------------------------------------- 
-let s:cdeBackground   = '2c2e36'
-let s:cdeCursorline   = '24252b'
+" let s:cdeBackground   = '2c2e36'
+let s:cdeBackground   = '181f26'
+let s:cdeCursorline   = '151b21'
 let s:cdeGutter       = '3f414d'
 let s:cdeGutterHi     = '535663'
 let s:cdeGutterText   = '818594'
 let s:cdeGutterTextHi = '9094a3'
 let s:cdeEOL          = '32343d'
-let s:cdeProjects     = '26272b'
+" let s:cdeProjects     = '26272b'
+let s:cdeProjects     = '181b1f'
 " let s:cdeProjects     = '1f2126'
 
 let s:cdeGitAdd = '839e64'
