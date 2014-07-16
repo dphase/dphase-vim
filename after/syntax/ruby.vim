@@ -4,6 +4,8 @@ syn keyword dphaseDebug dlog
 hi def link dphaseBinding Error
 hi def link dphaseDebug Error
 
+syn keyword dphaseRubyPrivate private
+
 syn match rubyConstant ' == '
 syn match rubyConstant ' != '
 syn match rubyConstant ' < '

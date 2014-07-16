@@ -372,6 +372,6 @@ let g:slime_target = "tmux"
 
 " Eclim
 " ---------------------------------------------------------------------------------
-autocmd FileType java,ruby let g:EclimCompletionMethod = 'omnifunc'
+" autocmd FileType java,ruby let g:EclimCompletionMethod = 'omnifunc'
 " autocmd FileType java,ruby,c,cpp
 "   \ if &completefunc != '' | let &omnifunc=&completefunc | endif
