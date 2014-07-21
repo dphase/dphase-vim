@@ -3,14 +3,12 @@
 " (C) 2004 Joshua Deere - joshua.deere@gmail.com
 " -----------------------------------------------
 
-" pathogen
-execute pathogen#infect('bundle/{}')
-execute pathogen#helptags()
 
 filetype plugin on
 filetype plugin indent on
 syntax on
 filetype indent on
+runtime! macros/matchit.vim
 
 set foldmethod=marker
 set smartindent
@@ -31,6 +29,10 @@ set autoread
 set clipboard=unnamed
 set printfont=Monaco:h13
 set tags+=gems.tags
+
+" pathogen
+execute pathogen#infect('bundle/{}')
+execute pathogen#helptags()
 
 if has('gui_running')
   set background=dark
@@ -229,10 +231,21 @@ autocmd FileType int-bundle setlocal wrap
 " ------------------------------------------------------------------------ 
 nmap <leader>G :Gcommit -a<CR>
 
-let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_modified = '-'
-let g:gitgutter_sign_modified_removed = '--'
-let g:gitgutter_sign_removed = '_ '
+" normal signs
+" let g:gitgutter_sign_added = '+'
+" let g:gitgutter_sign_modified = '-'
+" let g:gitgutter_sign_modified_removed = '--'
+" let g:gitgutter_sign_removed = '_ '
+" thick marks
+" let g:gitgutter_sign_added = '▐'
+" let g:gitgutter_sign_modified = '▐'
+" let g:gitgutter_sign_modified_removed = '▐'
+" let g:gitgutter_sign_removed = '▐'
+" thin marks │╏ 
+let g:gitgutter_sign_added = '│'
+let g:gitgutter_sign_modified = '│'
+let g:gitgutter_sign_modified_removed = '│'
+let g:gitgutter_sign_removed = '│'
 
 " lightline
 " ------------------------------------------------------------------------ 

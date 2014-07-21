@@ -28,12 +28,12 @@ set ambiwidth=single
 set number
 set cursorline
 
-nnoremap <leader>1 :set guifont=Envy\ Code\ R\ for\ Powerline:h13<CR>
+nnoremap <leader>1 :set guifont=ProFontWindows:h12<CR>
 nnoremap <leader>2 :set guifont=Wunexus:h10<CR>
 nnoremap <leader>3 :set guifont=lime:h11<CR>
 nnoremap <leader>4 :set guifont=Sheldon\ Narrow:h12<CR>
 nnoremap <leader>5 :set guifont=Terminus:h12<CR>
-nnoremap <leader>6 :set guifont=Envy\ Code\ R:h13<CR>
+nnoremap <leader>6 :set guifont=Envy\ Code\ R\ for\ Powerline:h13<CR>
 
 " local color hacks
 hi NonText guifg=#268bd2 gui=NONE cterm=NONE term=NONE
