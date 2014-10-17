@@ -24,3 +24,6 @@ syn match rubyClassVariable '\(@@\)\w+'
 syn keyword rubyKeyword lambda conceal cchar=λ
 syn match rubyKeyword '->' conceal cchar=λ
 syn match rubyFloat 'Math::PI' conceal cchar=π
+" syn match rubyFloat contained ' \({{{\)$' conceal cchar=+
+" syn keyword rubyKeyword {{{ conceal cchar=+
+" syn match fmrkr '#\.*{{{\|#\.*}}}' containedin=Comment contained | hi fmrkr guibg=white

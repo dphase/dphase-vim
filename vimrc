@@ -96,6 +96,9 @@ let g:syntastic_warning_symbol='→'
 let g:syntastic_ignore_files=['\c\.erb$']
 let g:syntastic_stl_format='%E{💀 %fe (%e) ⮃}%W{ 💡 %fw (%w) }'
 
+" nerdtree
+let NERDTreeIgnore = ['\.tags$','^tags$']
+
 " various mappings
 noremap <leader>d :NERDTreeToggle<CR>
 noremap <leader>g :TagbarOpenAutoClose<CR>
@@ -134,9 +137,9 @@ let g:xml_syntax_folder=1
 au FileType xml setlocal foldmethod=syntax
 
 " startify
-let g:startify_session_dir = '~/.vim/sessions'
+" let g:startify_session_dir = '~/.vim/sessions'
 let g:startify_files_number = 15
-let g:startify_bookmarks = [ '~/Dropbox/TODO.otl', '~/.vim/vimrc', '~/.vim/gvimrc', '~/.vim/colors/base16-dphase.vim', '~/.vim/after/syntax/ruby.vim' ]
+let g:startify_bookmarks = [ '~/Dropbox/scratch/ruby.rb', '~/Dropbox/TODO.otl', '~/.vim/vimrc', '~/.vim/gvimrc' ]
 let g:startify_custom_header = [
       \ '                                  ___',
       \ '         ___        ___          /__/\',
@@ -151,6 +154,15 @@ let g:startify_custom_header = [
       \ '          ~~~~                   \__\/',
       \ '',
       \ ]
+                                                                
+" let g:startify_custom_header = [
+"   \ '                _|      _|  _|_|_|  _|      _|                  ',
+"   \ '_|_|_|_|_|      _|      _|    _|    _|_|  _|_|      _|_|_|_|_|  ',
+"   \ '                _|      _|    _|    _|  _|  _|                  ',
+"   \ '_|_|_|_|_|        _|  _|      _|    _|      _|      _|_|_|_|_|  ',
+"   \ '                    _|      _|_|_|  _|      _|                  ',
+"   \ '',
+"   \ ]
 
 hi StartifyHeader  ctermfg=203 guifg=#c4a3e1
 hi StartifySlash ctermfg=240 guifg=#969696
@@ -257,12 +269,17 @@ source ~/.vim/dphase_lightline.vim
 " ----------------------------------- 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
-call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'ignore_pattern', join([
       \ '\.git/',
+      \ '\.bundle/',
+      \ '\.yardoc/',
+      \ 'nodejs/*/node_modules/',
+      \ 'nodejs/',
       \ 'git5/.*/review/',
       \ 'google/obj/',
       \ 'tmp/',
+      \ 'deprecated/',
       \ 'nodejs/node_modules/',
       \ 'assets/components/',
       \ '.sass-cache',
@@ -281,9 +298,9 @@ autocmd FileType unite call s:unite_settings()
 " let g:unite_split_rule = 'bottomleft'
 
 nmap <leader>bl :<C-u>Unite -no-split -start-insert -buffer-name=buffer buffer<CR>
-nmap <leader>y :<C-u>Unite -direction=botright -winheight=10 -buffer-name=yank history/yank<CR>
+nmap <leader>y :<C-u>Unite -direction=botright -prompt-direction=top -winheight=10 -buffer-name=yank history/yank<CR>
 nmap <leader>h :Unite -start-insert -winheight=10 -buffer-name=help help<CR>
-nmap ; :<C-u>Unite -direction=botright -winheight=10 -start-insert -buffer-name=files file_rec/async<CR>
+nmap ; :<C-u>Unite -direction=botright -prompt-direction=top -winheight=10 -start-insert -buffer-name=files file_rec/async<CR>
 " ------------------------------------------------------------------------ 
 
 " vim-emmet
@@ -383,8 +400,20 @@ hi link coffeeSemicolonError NONE
 " ------------------------------------------------------------------------ 
 let g:slime_target = "tmux"
 
-" Eclim
+" Unite Workflow
 " ---------------------------------------------------------------------------------
-" autocmd FileType java,ruby let g:EclimCompletionMethod = 'omnifunc'
-" autocmd FileType java,ruby,c,cpp
-"   \ if &completefunc != '' | let &omnifunc=&completefunc | endif
+" Gist-VIM
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1
+let g:gist_show_privates = 1
+let g:gist_post_privates = 1
+
+" Remove trailing whitespace on save
+" ---------------------------------------------------------------------------------
+autocmd FileType c,ruby,coffee,css,slim,scss,html,xml autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" Ruby scratch buffer
+" ---------------------------------------------------------------------------------
+" function! s:Scratch
+"   exe 'below split +buffer'
+" endfunction
